@@ -10,10 +10,11 @@ class HomeStateful extends StatefulWidget {
 }
 
 class _HomeStatefulState extends State<HomeStateful> {
-  var _generatedResponse = "Clique abaixo para gerar uma frase";
+  var _generatedResponse = "Gerar frase";
 
+  //Integracao com a OpenIA - token de API do OpenAI
   Future<void> _generateResponse() async {
-    const openaiApiKey = "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"; // Substitua pelo seu token de API do OpenAI
+    const openaiApiKey = "SUA CHAVE AQUI!!!";
     const apiUrl = "https://api.openai.com/v1/chat/completions";
 
     final response = await http.post(
@@ -50,7 +51,7 @@ class _HomeStatefulState extends State<HomeStateful> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Exemplo de Integração com OpenAI"),
+        title: const Text("Integração com OpenAI"),
         backgroundColor: Colors.green,
       ),
       body: Container(
@@ -60,6 +61,7 @@ class _HomeStatefulState extends State<HomeStateful> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Image.asset("images/logo.png"),
             Text(
               _generatedResponse,
               style: const TextStyle(
